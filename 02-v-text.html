@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue之v-text</title>
+</head>
+<body>
+    <div id="app">
+        <h1>vue中,使用v-开头的属性叫做指令</h1>
+        <p> v-text一般用于正常显示的标签,input除外</p>
+        <br>
+        <span v-text="msg"></span>
+        <span v-text="name"></span>
+        <br>
+        <strong>v-text内容部分可以写js的表达式</strong>
+        <p v-text="1+1"></p>
+        <p v-text="'1'+1"></p>
+        <strong>v-text内部还可以写函数</strong>
+        <p v-text="Math.random()"></p>
+        <!--string -->
+        <p v-text="typeof JSON.stringify({a:1,b:2})"></p>
+        <p v-text="JSON.stringify({a:1,b:2})"></p>
+        <!--object -->
+        <p v-text="typeof {a:1,b:2}"></p>
+        <p v-text="{a:1,b:2}"></p>
+        <strong> v-text内部不能使用bom或者bom对象的属性</strong>
+        <!-- <p v-text="window.location.href"></p> -->
+        <strong>全局定义的属性也不能用</strong>
+        <p v-text="'name'+1"></p>
+        <p v-text="name+1"></p>
+
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+        //实例化
+        var vm=new Vue({
+            data:function(){
+                return{
+                    msg:'里好啊',
+                    name:'小骨'
+                }
+            }
+        })
+        //渲染的位置
+        vm.$mount('#app');
+</script>

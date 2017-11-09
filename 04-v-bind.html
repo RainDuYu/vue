@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue之v-bind</title>
+    <style>
+    .red{
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:aa="msg">aaa</p>
+        <!-- <img v-bind:src="imgPath" alt=""> -->
+        <div v-bind:class="color">萨瓦迪卡</div>
+        <div v-bind:yy="1+1">框架</div>
+        <div v-bind:yy="Math.random()"></div>
+        <!-- 不能写alert -->
+        <!-- <div v-bind:yy="alert(111)">这是个div</div> -->
+        <!-- v-bind可以进行简写 -->
+        <div :yy="1+1"></div>
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    //实例化
+    var vm=new Vue({
+        data:function(){
+            return{
+                color:'red',
+                msg:'小狗狗',
+                name: 1,
+                imgPath:'./img/demo01.jpeg'
+            }
+        }       
+    })
+    //页面渲染
+    vm.$mount('#app');
+</script>

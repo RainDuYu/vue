@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue之v-html-{{}}</title>
+</head>
+<body>
+    <div id="app">
+        <h1>v-html的使用</h1>
+        <p v-text="msg"></p>
+        <p v-text="name"></p>
+        <br>
+        <strong> v-html和v-text非常相似</strong>                           
+        <strong> v-text指定元素的innerText为内容部分</strong>                           
+        <strong> v-html指定元素的innerHTML为内容部分</strong>                           
+        <p v-html="msg"></p>
+        <p v-html="name"></p>
+
+        <strong>插值表达式</strong>
+        <strong>插值表达式相当于v-text</strong>
+        <strong>插值表达式不能用于属性中, 除了属性以外的地方都可以使用</strong>
+        <p>{{msg}}</p>
+        {{msg}}
+        {{name}}
+     
+
+    </div>
+</body>
+</html>
+<script src="./vue.js"></script>
+<script>
+    //实例化
+    var vm=new Vue({
+        data:function(){
+            return{
+                msg:'html要显示的内容',
+                name:'<h1>name部分</h1>'
+            }
+        }
+    })
+    //设置渲染位置
+    vm.$mount('#app');
+</script>
